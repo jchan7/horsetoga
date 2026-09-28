@@ -1,0 +1,9 @@
+*.xcodeproj
+DerivedData/
+build/
+.DS_Store
+xcuserdata/
+
+release/
+*.dmg
+*.xcarchive

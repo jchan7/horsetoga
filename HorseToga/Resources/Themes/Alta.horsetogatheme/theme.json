@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "name": "Alta",
+  "author": "HorseToga",
+  "order": 30,
+  "appearance": "dark",
+  "colors": {
+    "accent": "#E6EDF3",
+    "background": "#0E0F11",
+    "surface": "#1A1C1F",
+    "border": "#33373D",
+    "textPrimary": "#F2F4F6",
+    "textSecondary": "#C4C9D0",
+    "textTertiary": "#8A9099",
+    "error": "#F26D6D",
+    "success": "#8CCB70"
+  },
+  "background": { "kind": "image", "image": "background.jpg", "scrimOpacity": 0.5 },
+  "material": "none",
+  "typography": { "fontFamily": "Helvetica Neue", "baseSize": 12 },
+  "legibility": { "minScrim": 0.45, "targetContrast": 6 },
+  "metrics": { "cornerRadius": 12, "tileGap": 10, "borderWidth": 1 }
+}

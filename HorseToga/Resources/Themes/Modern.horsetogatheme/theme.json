@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "name": "Modern",
+  "author": "Jason Chan",
+  "appearance": "dark",
+  "colors": {
+    "accent": "#FF3B3B",
+    "background": "#0E1A2E",
+    "surface": "#1B2B46",
+    "border": "#34475F",
+    "textPrimary": "#EAF1FB",
+    "textSecondary": "#B7C6DC",
+    "textTertiary": "#7C8EA6",
+    "error": "#FF5C68",
+    "success": "#37D67A"
+  },
+  "background": { "kind": "image", "image": "background.jpg", "scrimOpacity": 0.5 },
+  "material": "none",
+  "metrics": { "cornerRadius": 12, "tileGap": 10, "borderWidth": 1 },
+  "order": 20
+}
