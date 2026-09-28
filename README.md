@@ -2,6 +2,10 @@
 
 An Omarchy-inspired workspace for LLMs on macOS: a keyboard-first tiling workspace where multiple AI agents run side by side, summoned from a global launcher panel, themed end to end.
 
+[![HorseToga demo: three models, one prompt, zero mouse](site/demo-thumb.jpg)](https://jchan7.github.io/horsetoga/#demo)
+
+▶ [Watch the one-minute demo](https://jchan7.github.io/horsetoga/#demo)
+
 - Bring your own AI, any CLI agent: Claude Code, Codex, Gemini CLI, OpenCode, Cursor Agent, Mistral Vibe, Kimi Code, Grok CLI out of the box — each is a config entry, and `~/Library/Application Support/com.jasonchan.horsetoga/providers.json` adds or overrides any CLI without a rebuild (see `providers.example.json` beside it). API keys (Anthropic, OpenAI, xAI) live in the Providers dock app too; switch provider/model per session from the tile header
 - Tiling screens: Hyprland-style dwindle splits; Home plus up to nine live screens that auto-persist and restore at launch, all keyboard
 - View modes: the same live sessions re-project as tiles, an inbox, a Linear-style tracker, or a rookery of penguins — switch per workspace with ⌘⇧V or the bottom-bar switcher

@@ -359,6 +359,8 @@
 
   .final { text-align: center; padding: clamp(4rem, 9vw, 7rem) 0; border-top: 1px solid var(--border); }
   .final h2 { max-width: 20ch; margin-inline: auto; }
+  .demo-video { margin-top: 2rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: #000; box-shadow: 0 30px 80px -40px var(--shadow); }
+  .demo-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
   footer { border-top: 1px solid var(--border); padding: 2rem 0 3rem; }
   footer .nav { height: auto; }
   footer .fbrand { font-family: var(--font-display); font-weight: 800; color: var(--text); display: inline-flex; align-items: center; }
@@ -395,6 +397,7 @@
       <div class="brand"><span class="logo-mark" role="img" aria-label="HorseToga app icon"></span><b>Horse<i>Toga</i></b></div>
       <div class="nav-right">
         <nav class="nav-links">
+          <a href="#demo">Demo</a>
           <a href="#keys">Keys</a>
           <a href="#providers">Agents</a>
         </nav>
@@ -475,6 +478,19 @@
           <div class="stage-cap">
             <kbd>⌘</kbd><kbd>↩</kbd><span>opens a new chat, live — press</span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><span>to switch theme.</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO -->
+    <section class="band" id="demo">
+      <div class="shell">
+        <div class="sec-head">
+          <span class="eyebrow">The one-minute tour</span>
+          <h2>Three models, one prompt, zero mouse.</h2>
+        </div>
+        <div class="demo-video">
+          <video src="demo.mp4" poster="demo-poster.jpg" controls playsinline preload="metadata" aria-label="HorseToga demo video"></video>
         </div>
       </div>
     </section>
