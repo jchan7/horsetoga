@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key><string>en</string>
+	<key>CFBundleExecutable</key><string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key><string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
+	<key>CFBundleName</key><string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key><string>APPL</string>
+	<key>CFBundleShortVersionString</key><string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key><string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSMinimumSystemVersion</key><string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>NSPrincipalClass</key><string>NSApplication</string>
+	<key>NSHumanReadableCopyright</key><string>© 2026 Jason Chan</string>
+	<key>LSApplicationCategoryType</key><string>public.app-category.developer-tools</string>
+	<!-- Sparkle: appcast.xml is an asset of each GitHub release in this repo; key from generate_keys (see README ▸ Release). -->
+	<key>SUFeedURL</key><string>https://github.com/jchan7/horsetoga/releases/latest/download/appcast.xml</string>
+	<key>SUPublicEDKey</key><string>wOl9GkUDwKFiKEaxMke9s9HOeOvuZuI6SlfbFus3KC8=</string>
+	<key>SUEnableAutomaticChecks</key><true/>
+	<key>NSMicrophoneUsageDescription</key><string>HorseToga uses the microphone for push-to-talk dictation — hold fn + Shift in a chat to speak your prompt instead of typing it.</string>
+	<key>NSSpeechRecognitionUsageDescription</key><string>HorseToga transcribes your speech to text so you can dictate prompts by holding fn + Shift.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<!-- Allow plain-HTTP requests to a local model server (LM Studio, Ollama). -->
+		<key>NSAllowsLocalNetworking</key><true/>
+	</dict>
+</dict>
+</plist>
