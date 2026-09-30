@@ -12,6 +12,13 @@ An Omarchy-inspired workspace for LLMs on macOS: a keyboard-first tiling workspa
 - Built-in apps live in a macOS-style dock (usage, files, editor, mail, slides, sheets) and open as their own full-window section (⌘U for usage, ⎋ closes); each app exposes state + tools to the AI
 - Themes are folders of JSON + assets, hot-reloaded, switched live with ⌘T (the switcher also opens on first launch so you pick one); "Import image…" in the switcher turns any picture into a new theme (bundled: Horses, Drift, Modern, Alta, Tokyo, Marble, Lake)
 
+## Install
+
+1. Download the `.dmg` from the [latest release](https://github.com/jchan7/horsetoga/releases/latest), open it, and drag **HorseToga** into Applications. It needs macOS 26 or later.
+2. HorseToga isn't notarized by Apple yet, so macOS blocks the first launch. Open it once and click **Done**. Then go to **System Settings → Privacy & Security**, scroll down, and click **Open Anyway** next to the HorseToga message. You only do this once, and updates arrive through the app.
+   - Or run this in Terminal, then open the app normally: `xattr -dr com.apple.quarantine /Applications/HorseToga.app`
+3. To use CLI agents, install and sign in to the ones you want (for example `claude` or `cursor-agent`). For local models, start LM Studio's server. Then pick a model in any tile.
+
 ## Requirements
 
 - macOS 26+, Xcode 26+
@@ -64,9 +71,11 @@ One-time setup:
 
 ```bash
 HORSETOGA_TEAM_ID=XXXXXXXXXX scripts/release.sh 0.2.0
+# no Apple Developer account yet: self-signed, not notarized (users click "Open Anyway" once)
+HORSETOGA_SELF_SIGNED=1 scripts/release.sh 0.2.0
 ```
 
-builds a Release archive, exports and verifies the Developer ID signature, packages `release/HorseToga-0.2.0.dmg`, notarizes and staples it, regenerates `appcast.xml`, publishes the DMG and `appcast.xml` as assets of a GitHub release on this repo, and tags `v0.2.0`. Without `HORSETOGA_TEAM_ID` the individual steps (`scripts/build-release.sh`, `scripts/make-dmg.sh`) still run and produce an ad-hoc signed build for local testing.
+builds a Release archive, exports and verifies the Developer ID signature, packages `release/HorseToga-0.2.0.dmg`, notarizes and staples it, regenerates `appcast.xml`, publishes the DMG and `appcast.xml` as assets of a GitHub release on this repo, and tags `v0.2.0`. With `HORSETOGA_SELF_SIGNED=1` instead of a team id, it signs with the local self-signed "HorseToga Signing" identity and skips notarization. Everything else is the same, including Sparkle updates. Without either, the individual steps (`scripts/build-release.sh`, `scripts/make-dmg.sh`) still run and produce an ad-hoc signed build for local testing.
 
 ## License
 
