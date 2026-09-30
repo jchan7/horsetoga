@@ -48,7 +48,7 @@ targets:
         DEVELOPMENT_TEAM: $(HORSETOGA_TEAM_ID)
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         CURRENT_PROJECT_VERSION: 3
-        MARKETING_VERSION: 0.2.0
+        MARKETING_VERSION: 0.1.0
       configs:
         Release:
           CODE_SIGN_STYLE: Manual

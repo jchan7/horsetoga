@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # One-command release: build → DMG → notarize → appcast → GitHub release → tag.
 #   HORSETOGA_TEAM_ID=XXXXXXXXXX scripts/release.sh 0.2.0
+#   HORSETOGA_SELF_SIGNED=1 scripts/release.sh 0.2.0   # no Developer ID: self-signed, not notarized
 set -euo pipefail
 cd "$(dirname "$0")/.."
 VERSION="${1:?usage: release.sh <version>}"
@@ -8,12 +9,15 @@ RELEASES_REPO="${HORSETOGA_RELEASES_REPO:-jchan7/horsetoga}"
 DOWNLOAD_PREFIX="https://github.com/$RELEASES_REPO/releases/download/v$VERSION/"
 
 [[ -z $(git status --porcelain) ]] || { echo "working tree not clean — commit first"; exit 1; }
-[[ -n "${HORSETOGA_TEAM_ID:-}" ]] || { echo "HORSETOGA_TEAM_ID is required for a real release (scripts/bootstrap.sh)"; exit 1; }
+if [[ -z "${HORSETOGA_TEAM_ID:-}" ]]; then
+  [[ "${HORSETOGA_SELF_SIGNED:-}" == 1 ]] || { echo "HORSETOGA_TEAM_ID is required for a notarized release (scripts/bootstrap.sh); set HORSETOGA_SELF_SIGNED=1 to ship a self-signed build"; exit 1; }
+  echo "!! self-signed release: not notarized, so users allow it once in System Settings → Privacy & Security"
+fi
 
 scripts/build-release.sh "$VERSION"
 scripts/make-dmg.sh
 DMG="release/HorseToga-$VERSION.dmg"
-scripts/notarize.sh "$DMG"
+[[ -z "${HORSETOGA_TEAM_ID:-}" ]] || scripts/notarize.sh "$DMG"
 
 # Sparkle's tools ship inside the resolved package.
 SPARKLE_BIN=$(find ~/Library/Developer/Xcode/DerivedData -path '*/artifacts/sparkle/Sparkle/bin' -maxdepth 6 -type d 2>/dev/null | head -1)
